@@ -1,13 +1,13 @@
 - name: Hello Events
- hosts: localhost
- sources:
-   - ansible.eda.kafka:
+  hosts: localhost
+  sources:
+  - ansible.eda.kafka:
        host: kafka
        port: 9092
        topic: orders
- rules:
-   - name: Say Hello
-     condition: event.target_os == "linux" and event.tracking_id == 345
-     action:
+  rules:
+  - name: Say Hello
+    condition: event.target_os == "linux" and event.tracking_id == 345
+    action:
        debug:
          msg: “{{ event }}”
