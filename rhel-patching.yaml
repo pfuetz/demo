@@ -1,5 +1,5 @@
 ---
-- name: Patch RHEL server
+- name: Patch servers according to OS type
   hosts: all
   # become: true
 
