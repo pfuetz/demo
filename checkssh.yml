@@ -32,7 +32,7 @@
         line: LogLevel VERBOSE"
         state: present
 
-    - name: Check forth required line
+    - name: Check fifth required line
       ansible.builtin.lineinfile:
         path: /etc/ssh/ssh_config
         regexp: PermitRootLogin
