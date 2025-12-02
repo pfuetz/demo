@@ -1,0 +1,41 @@
+---
+- name: Check SSH config
+  become: true
+  hosts: all
+  tasks:
+    - name: Check first required line
+      # https://docs.ansible.com/projects/ansible/latest/collections/ansible/builtin/lineinfile_module.html#ansible-collections-ansible-builtin-lineinfile-module
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/ssh_config
+        regexp: PubkeyAuthentication
+        line: PubkeyAuthentication yes 
+        state: present
+
+    - name: Check second required line
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/ssh_config
+        regexp: UsePAM
+        line: UsePAM yes
+        state: present
+
+    - name: Check third required line
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/ssh_config
+        regexp: SyslogFacility
+        line: SyslogFacility AUTH 
+        state: present
+
+    - name: Check forth required line
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/ssh_config
+        regexp: LogLevel
+        line: LogLevel VERBOSE"
+        state: present
+
+    - name: Check forth required line
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/ssh_config
+        regexp: PermitRootLogin
+        line: PermitRootLogin no
+        state: present
+        
